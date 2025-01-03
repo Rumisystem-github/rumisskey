@@ -14,7 +14,7 @@ export const meta = {
 	tags: ['admin'],
 
 	requireCredential: true,
-	requireRolePolicy: 'canManageCustomEmojis',
+	requireRolePolicy: 'canEditCustomEmojis',
 	kind: 'write:admin:emoji',
 
 	errors: {
@@ -79,7 +79,7 @@ export default class extends Endpoint<typeof meta, typeof paramDef> { // eslint-
 			}
 
 			// JSON schemeのanyOfの型変換がうまくいっていないらしい
-			const required = { id: ps.id, name: ps.name } as 
+			const required = { id: ps.id, name: ps.name } as
 				| { id: MiEmoji['id']; name?: string }
 				| { id?: MiEmoji['id']; name: string };
 

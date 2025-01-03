@@ -204,6 +204,14 @@ export const packedRolePoliciesSchema = {
 			type: 'boolean',
 			optional: false, nullable: false,
 		},
+		canDeleteCustomEmojis: {
+			type: 'boolean',
+			optional: false, nullable: false,
+		},
+		canEditCustomEmojis: {
+			type: 'boolean',
+			optional: false, nullable: false,
+		},
 		canManageAvatarDecorations: {
 			type: 'boolean',
 			optional: false, nullable: false,
