@@ -4859,6 +4859,8 @@ export type components = {
       inviteLimitCycle: number;
       inviteExpirationTime: number;
       canManageCustomEmojis: boolean;
+      canDeleteCustomEmojis: boolean;
+      canEditCustomEmojis: boolean;
       canManageAvatarDecorations: boolean;
       canSearchNotes: boolean;
       canUseTranslator: boolean;

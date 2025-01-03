@@ -3990,6 +3990,10 @@ export interface Locale extends ILocale {
      * ベータ
      */
     "beta": string;
+		/**
+		 * 独自機能
+		 */
+		"originalFeature": string;
     /**
      * 自動センシティブ判定
      */
@@ -6909,6 +6913,14 @@ export interface Locale extends ILocale {
              * カスタム絵文字の管理
              */
             "canManageCustomEmojis": string;
+						/**
+						 * カスタム絵文字の削除を許可
+						 */
+						"canDeleteCustomEmojis": string;
+						/**
+						 * カスタム絵文字の編集を許可
+						 */
+						"canEditCustomEmojis": string;
             /**
              * アバターデコレーションの管理
              */
