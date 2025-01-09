@@ -69,8 +69,7 @@ export class EmailService {
 				from: this.meta.email!,
 				to: to,
 				subject: subject,
-				text: text,
-				html: inlinedHtml,
+				text: htmlContent + text,
 			});
 
 			this.logger.info(`Message sent: ${info.messageId}`);
