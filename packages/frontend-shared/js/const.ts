@@ -57,6 +57,7 @@ https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers
 export const notificationTypes = [
 	'note',
 	'follow',
+	'unfollow',
 	'mention',
 	'reply',
 	'renote',
@@ -71,6 +72,8 @@ export const notificationTypes = [
 	'login',
 	'test',
 	'app',
+	"blocked",
+	"unblocked"
 ] as const;
 export const obsoleteNotificationTypes = ['pollVote', 'groupInvited'] as const;
 

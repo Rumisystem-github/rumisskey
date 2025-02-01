@@ -402,6 +402,11 @@ export class UserFollowingService implements OnModuleInit {
 			const content = this.apRendererService.addContext(this.apRendererService.renderReject(this.apRendererService.renderFollow(follower as MiPartialRemoteUser, followee as MiPartialLocalUser), followee));
 			this.queueService.deliver(followee, content, follower.inbox, false);
 		}
+
+		//フォロー解除されたときの通知
+		//メモ:follower=フォロー解除した人
+		//メモ:followee=フォロー解除された人
+		this.notificationService.createNotification(followee.id, 'unfollow', {}, follower.id);
 	}
 
 	@bindThis

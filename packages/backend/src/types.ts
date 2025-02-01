@@ -24,6 +24,7 @@
 export const notificationTypes = [
 	'note',
 	'follow',
+	'unfollow',
 	'mention',
 	'reply',
 	'renote',
@@ -38,6 +39,8 @@ export const notificationTypes = [
 	'login',
 	'app',
 	'test',
+	"blocked",
+	"unblocked"
 ] as const;
 
 export const groupedNotificationTypes = [

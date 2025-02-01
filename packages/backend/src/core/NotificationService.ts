@@ -179,6 +179,7 @@ export class NotificationService implements OnApplicationShutdown {
 			this.pushNotificationService.pushNotification(notifieeId, 'notification', packed);
 
 			if (type === 'follow') this.emailNotificationFollow(notifieeId, await this.usersRepository.findOneByOrFail({ id: notifierId! }));
+			if (type === 'unfollow') this.emailNotificationFollow(notifieeId, await this.usersRepository.findOneByOrFail({ id: notifierId! }));			//←フォロー解除
 			if (type === 'receiveFollowRequest') this.emailNotificationReceiveFollowRequest(notifieeId, await this.usersRepository.findOneByOrFail({ id: notifierId! }));
 		}, () => { /* aborted, ignore it */ });
 

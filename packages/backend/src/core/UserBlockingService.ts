@@ -20,6 +20,7 @@ import { UserWebhookService } from '@/core/UserWebhookService.js';
 import { bindThis } from '@/decorators.js';
 import { CacheService } from '@/core/CacheService.js';
 import { UserFollowingService } from '@/core/UserFollowingService.js';
+import { NotificationService } from '@/core/NotificationService.js';
 
 @Injectable()
 export class UserBlockingService implements OnModuleInit {
@@ -49,6 +50,7 @@ export class UserBlockingService implements OnModuleInit {
 		private webhookService: UserWebhookService,
 		private apRendererService: ApRendererService,
 		private loggerService: LoggerService,
+		private notificationService: NotificationService,
 	) {
 		this.logger = this.loggerService.getLogger('user-block');
 	}
@@ -89,6 +91,11 @@ export class UserBlockingService implements OnModuleInit {
 			const content = this.apRendererService.addContext(this.apRendererService.renderBlock(blocking));
 			this.queueService.deliver(blocker, content, blockee.inbox, false);
 		}
+
+		//ブロック通知
+		//メモ:blocker=した人
+		//メモ:blockee=された人
+		this.notificationService.createNotification(blockee.id, 'blocked', {}, blocker.id);
 	}
 
 	@bindThis
@@ -181,6 +188,11 @@ export class UserBlockingService implements OnModuleInit {
 			const content = this.apRendererService.addContext(this.apRendererService.renderUndo(this.apRendererService.renderBlock(blocking), blocker));
 			this.queueService.deliver(blocker, content, blockee.inbox, false);
 		}
+
+		//ブロック解除通知
+		//メモ:blocker=した人
+		//メモ:blockee=された人
+		this.notificationService.createNotification(blockee.id, 'unblocked', {}, blocker.id);
 	}
 
 	@bindThis
