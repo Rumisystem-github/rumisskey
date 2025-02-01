@@ -588,6 +588,9 @@ const routes: RouteDef[] = [{
 	redirect: $i ? `@${$i.username}` : '/',
 	loginRequired: true,
 }, {
+	path: '/blocklist',
+	component: page(() => import('@/pages/blocklist.vue')),
+}, {
 	path: '/:(*)',
 	component: page(() => import('@/pages/not-found.vue')),
 }];
